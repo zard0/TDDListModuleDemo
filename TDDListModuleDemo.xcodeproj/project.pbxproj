@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A174B231F3BF6B1005BB4D3 /* MyTableViewDataSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A174B221F3BF6B1005BB4D3 /* MyTableViewDataSourceTests.m */; };
+		0A174B261F3BFA73005BB4D3 /* MyTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A174B251F3BFA73005BB4D3 /* MyTableViewDataSource.m */; };
+		0A174B281F3C08E7005BB4D3 /* MyViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A174B271F3C08E7005BB4D3 /* MyViewControllerTests.m */; };
+		0A174B2B1F3C0BB6005BB4D3 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A174B2A1F3C0BB6005BB4D3 /* MyViewController.m */; };
 		0ABD36581F3B257400FC023B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABD36571F3B257400FC023B /* main.m */; };
 		0ABD365B1F3B257400FC023B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABD365A1F3B257400FC023B /* AppDelegate.m */; };
 		0ABD365E1F3B257400FC023B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABD365D1F3B257400FC023B /* ViewController.m */; };
@@ -29,6 +33,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A174B221F3BF6B1005BB4D3 /* MyTableViewDataSourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableViewDataSourceTests.m; sourceTree = "<group>"; };
+		0A174B241F3BFA73005BB4D3 /* MyTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableViewDataSource.h; sourceTree = "<group>"; };
+		0A174B251F3BFA73005BB4D3 /* MyTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableViewDataSource.m; sourceTree = "<group>"; };
+		0A174B271F3C08E7005BB4D3 /* MyViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewControllerTests.m; sourceTree = "<group>"; };
+		0A174B291F3C0BB6005BB4D3 /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
+		0A174B2A1F3C0BB6005BB4D3 /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
 		0ABD36531F3B257400FC023B /* TDDListModuleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TDDListModuleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ABD36571F3B257400FC023B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0ABD36591F3B257400FC023B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -92,6 +102,10 @@
 				0ABD365D1F3B257400FC023B /* ViewController.m */,
 				0ABD367D1F3B318B00FC023B /* MyModel.h */,
 				0ABD367E1F3B318B00FC023B /* MyModel.m */,
+				0A174B241F3BFA73005BB4D3 /* MyTableViewDataSource.h */,
+				0A174B251F3BFA73005BB4D3 /* MyTableViewDataSource.m */,
+				0A174B291F3C0BB6005BB4D3 /* MyViewController.h */,
+				0A174B2A1F3C0BB6005BB4D3 /* MyViewController.m */,
 				0ABD365F1F3B257400FC023B /* Main.storyboard */,
 				0ABD36621F3B257400FC023B /* Assets.xcassets */,
 				0ABD36641F3B257400FC023B /* LaunchScreen.storyboard */,
@@ -113,6 +127,8 @@
 			isa = PBXGroup;
 			children = (
 				0ABD367B1F3B25BF00FC023B /* MyModelTests.m */,
+				0A174B221F3BF6B1005BB4D3 /* MyTableViewDataSourceTests.m */,
+				0A174B271F3C08E7005BB4D3 /* MyViewControllerTests.m */,
 				0ABD36701F3B257400FC023B /* TDDListModuleDemoTests.m */,
 				0ABD36721F3B257400FC023B /* Info.plist */,
 			);
@@ -223,6 +239,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A174B2B1F3C0BB6005BB4D3 /* MyViewController.m in Sources */,
+				0A174B261F3BFA73005BB4D3 /* MyTableViewDataSource.m in Sources */,
 				0ABD365E1F3B257400FC023B /* ViewController.m in Sources */,
 				0ABD365B1F3B257400FC023B /* AppDelegate.m in Sources */,
 				0ABD36581F3B257400FC023B /* main.m in Sources */,
@@ -235,6 +253,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0ABD36711F3B257400FC023B /* TDDListModuleDemoTests.m in Sources */,
+				0A174B231F3BF6B1005BB4D3 /* MyTableViewDataSourceTests.m in Sources */,
+				0A174B281F3C08E7005BB4D3 /* MyViewControllerTests.m in Sources */,
 				0ABD367C1F3B25BF00FC023B /* MyModelTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,6 +450,7 @@
 				0ABD36771F3B257400FC023B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0ABD36781F3B257400FC023B /* Build configuration list for PBXNativeTarget "TDDListModuleDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -438,6 +459,7 @@
 				0ABD367A1F3B257400FC023B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
