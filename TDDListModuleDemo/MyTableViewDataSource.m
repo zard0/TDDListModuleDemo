@@ -7,17 +7,25 @@
 //
 
 #import "MyTableViewDataSource.h"
+#import "MyCell.h"
 
 @implementation MyTableViewDataSource
 
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 3;
+    return [self.theDataArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
+    MyModel *model = [[MyModel alloc] init];
+    model.someId = self.theDataArray[indexPath.row][@"someId"];
+    model.type = [self.theDataArray[indexPath.row][@"type"] integerValue];
+    model.title = self.theDataArray[indexPath.row][@"title"];
+    MyCell *cell = (MyCell *)[tableView dequeueReusableCellWithIdentifier:[MyCell reuseIdentifier]];
+    NSAssert(cell, @"要将MyCell注册给表格视图对象");
+    cell.model = model;
+    return cell;
 }
 
 #pragma mark - UITableViewDelegate

@@ -10,4 +10,6 @@
 
 @interface MyTableViewDataSource : NSObject<UITableViewDataSource,UITableViewDelegate>
 
+@property (nonatomic, strong) NSArray *theDataArray;
+
 @end

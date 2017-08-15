@@ -16,6 +16,8 @@ typedef NS_ENUM(NSUInteger, ModelType){
 
 @interface MyModel : NSObject
 
+@property (nonatomic, copy) NSString *someId;
+@property (nonatomic, copy) NSString *title;
 @property (nonatomic, assign) ModelType type;
 @property (nonatomic, copy) NSString *picUrl;
 
