@@ -174,6 +174,41 @@
     XCTAssertTrue(update);
 }
 
+
+/**
+ tc 4.4
+ */
+- (void)test_HasACellTapBlock{
+    NSString *type = [NSObject typeForProperty:@"cellTapBlock" inClass:@"MyTableViewDataSource"];
+    XCTAssertTrue([type isEqualToString:@"Block:cellTapBlock"]);
+}
+
+/**
+ tc 4.5
+ */
+- (void)test_ExecuteCellTapBlockIfCellSelectedMethodCalled{
+    __block BOOL called = NO;
+    self.dataSource.cellTapBlock = ^(NSIndexPath *indexPath){
+        called = YES;
+    };
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.dataSource tableView:self.theTableView didSelectRowAtIndexPath:indexPath];
+    XCTAssertTrue(called);
+}
+
+/**
+ tc 4.6
+ */
+- (void)test_CellTapBlockReceiveDataOfTappedCell{
+    __block NSInteger row = 0;
+    self.dataSource.cellTapBlock = ^(NSIndexPath *indexPath){
+        row = indexPath.row;
+    };
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+    [self.dataSource tableView:self.theTableView didSelectRowAtIndexPath:indexPath];
+    XCTAssertTrue(row == 1);
+}
+
 @end
 
 

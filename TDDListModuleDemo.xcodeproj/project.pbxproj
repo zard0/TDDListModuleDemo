@@ -22,6 +22,9 @@
 		0ABD36711F3B257400FC023B /* TDDListModuleDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABD36701F3B257400FC023B /* TDDListModuleDemoTests.m */; };
 		0ABD367C1F3B25BF00FC023B /* MyModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABD367B1F3B25BF00FC023B /* MyModelTests.m */; };
 		0ABD367F1F3B318B00FC023B /* MyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABD367E1F3B318B00FC023B /* MyModel.m */; };
+		0AFA82671F43DA9D0020C958 /* FakeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFA82661F43DA9D0020C958 /* FakeTableView.m */; };
+		0AFA826B1F44214B0020C958 /* ATypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFA826A1F44214B0020C958 /* ATypeViewController.m */; };
+		0AFA826E1F442E0C0020C958 /* FakeNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFA826D1F442E0C0020C958 /* FakeNavigationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,13 @@
 		0ABD367B1F3B25BF00FC023B /* MyModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyModelTests.m; sourceTree = "<group>"; };
 		0ABD367D1F3B318B00FC023B /* MyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyModel.h; sourceTree = "<group>"; };
 		0ABD367E1F3B318B00FC023B /* MyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyModel.m; sourceTree = "<group>"; };
+		0AFA82651F43DA9D0020C958 /* FakeTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeTableView.h; sourceTree = "<group>"; };
+		0AFA82661F43DA9D0020C958 /* FakeTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeTableView.m; sourceTree = "<group>"; };
+		0AFA82681F43E3410020C958 /* MyDataSourceProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDataSourceProtocol.h; sourceTree = "<group>"; };
+		0AFA82691F44214B0020C958 /* ATypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATypeViewController.h; sourceTree = "<group>"; };
+		0AFA826A1F44214B0020C958 /* ATypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATypeViewController.m; sourceTree = "<group>"; };
+		0AFA826C1F442E0C0020C958 /* FakeNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeNavigationViewController.h; sourceTree = "<group>"; };
+		0AFA826D1F442E0C0020C958 /* FakeNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeNavigationViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,8 +122,11 @@
 				0ABD367E1F3B318B00FC023B /* MyModel.m */,
 				0A174B241F3BFA73005BB4D3 /* MyTableViewDataSource.h */,
 				0A174B251F3BFA73005BB4D3 /* MyTableViewDataSource.m */,
+				0AFA82681F43E3410020C958 /* MyDataSourceProtocol.h */,
 				0A174B291F3C0BB6005BB4D3 /* MyViewController.h */,
 				0A174B2A1F3C0BB6005BB4D3 /* MyViewController.m */,
+				0AFA82691F44214B0020C958 /* ATypeViewController.h */,
+				0AFA826A1F44214B0020C958 /* ATypeViewController.m */,
 				0ABD365F1F3B257400FC023B /* Main.storyboard */,
 				0ABD36621F3B257400FC023B /* Assets.xcassets */,
 				0ABD36641F3B257400FC023B /* LaunchScreen.storyboard */,
@@ -137,8 +150,12 @@
 				0ABD367B1F3B25BF00FC023B /* MyModelTests.m */,
 				0A174B221F3BF6B1005BB4D3 /* MyTableViewDataSourceTests.m */,
 				0A174B271F3C08E7005BB4D3 /* MyViewControllerTests.m */,
+				0AFA82651F43DA9D0020C958 /* FakeTableView.h */,
+				0AFA82661F43DA9D0020C958 /* FakeTableView.m */,
 				0A5FE4811F4436BC00C357D5 /* NSObject+TestingHelper.h */,
 				0A5FE4821F4436BC00C357D5 /* NSObject+TestingHelper.m */,
+				0AFA826C1F442E0C0020C958 /* FakeNavigationViewController.h */,
+				0AFA826D1F442E0C0020C958 /* FakeNavigationViewController.m */,
 				0ABD36701F3B257400FC023B /* TDDListModuleDemoTests.m */,
 				0ABD36721F3B257400FC023B /* Info.plist */,
 			);
@@ -251,6 +268,7 @@
 			files = (
 				0A174B2B1F3C0BB6005BB4D3 /* MyViewController.m in Sources */,
 				0A174B261F3BFA73005BB4D3 /* MyTableViewDataSource.m in Sources */,
+				0AFA826B1F44214B0020C958 /* ATypeViewController.m in Sources */,
 				0ABD365E1F3B257400FC023B /* ViewController.m in Sources */,
 				0ABD365B1F3B257400FC023B /* AppDelegate.m in Sources */,
 				0ABD36581F3B257400FC023B /* main.m in Sources */,
@@ -263,10 +281,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AFA826E1F442E0C0020C958 /* FakeNavigationViewController.m in Sources */,
 				0ABD36711F3B257400FC023B /* TDDListModuleDemoTests.m in Sources */,
 				0A174B231F3BF6B1005BB4D3 /* MyTableViewDataSourceTests.m in Sources */,
 				0A5FE4831F4436BC00C357D5 /* NSObject+TestingHelper.m in Sources */,
 				0A174B281F3C08E7005BB4D3 /* MyViewControllerTests.m in Sources */,
+				0AFA82671F43DA9D0020C958 /* FakeTableView.m in Sources */,
 				0ABD367C1F3B25BF00FC023B /* MyModelTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

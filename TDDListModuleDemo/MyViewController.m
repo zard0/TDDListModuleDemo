@@ -7,6 +7,7 @@
 //
 
 #import "MyViewController.h"
+#import "ATypeViewController.h"
 
 @interface MyViewController ()
 
@@ -16,12 +17,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    __weak typeof(self) wSelf = self;
+    self.theDataSource.updateBlock = ^{
+        __strong typeof(self) sSelf = wSelf;
+        [sSelf.theTableView reloadData];
+    };
+    self.theDataSource.cellTapBlock = ^(NSIndexPath *indexPath) {
+        __strong typeof(self) sSelf = wSelf;
+        NSDictionary *data = sSelf.theDataSource.theDataArray[indexPath.row];
+        if ([data[@"type"] integerValue] == 0) {
+            ATypeViewController *vc = [[ATypeViewController alloc] init];
+            [sSelf.navigationController pushViewController:vc animated:YES];
+        }
+    };
     self.theTableView.dataSource = self.theDataSource;
     self.theTableView.delegate = self.theDataSource;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    
     // Dispose of any resources that can be recreated.
 }
 

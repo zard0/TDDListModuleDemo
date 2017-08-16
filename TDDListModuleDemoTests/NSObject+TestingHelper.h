@@ -10,6 +10,17 @@
 
 @interface NSObject (TestingHelper)
 
+/// 可以在要被观察的方法里面使用这个block，让外界知道方法是否被调用，调用时传参是什么
+@property (nonatomic, copy) void(^callMethodBlock)(NSString *methodName, NSDictionary *parameters);
+
+/**
+ 方便调用callMethodBlock的方法
+
+ @param methodName <#methodName description#>
+ @param parasDic <#parasDic description#>
+ */
+- (void)callMethod:(NSString *)methodName parameters:(NSDictionary *)parasDic;
+
 /**
  
  用来判断一个类的某个属性的类型是什么

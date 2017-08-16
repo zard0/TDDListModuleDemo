@@ -11,6 +11,10 @@
 
 @implementation MyTableViewDataSource
 
+@synthesize theDataArray = _theDataArray;
+@synthesize updateBlock;
+@synthesize cellTapBlock;
+
 #pragma mark - Properties
 
 - (void)setTheDataArray:(NSArray *)theDataArray{
@@ -44,7 +48,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    if (self.cellTapBlock) {
+        self.cellTapBlock(indexPath);
+    }
 }
 
 @end

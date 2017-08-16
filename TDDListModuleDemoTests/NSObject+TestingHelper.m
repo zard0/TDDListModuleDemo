@@ -9,7 +9,29 @@
 #import "NSObject+TestingHelper.h"
 #import <objc/runtime.h>
 
+static const void * CallMethodBlockKey = &CallMethodBlockKey;
+
 @implementation NSObject (TestingHelper)
+
+- (void(^)(NSString *methodName, NSDictionary *parameters))callMethodBlock{
+    return objc_getAssociatedObject(self, CallMethodBlockKey);
+}
+
+- (void)setCallMethodBlock:(void (^)(NSString *, NSDictionary *))callMethodBlock{
+    objc_setAssociatedObject(self, CallMethodBlockKey, callMethodBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+/**
+ 方便调用callMethodBlock的方法
+ 
+ @param methodName <#methodName description#>
+ @param parasDic <#parasDic description#>
+ */
+- (void)callMethod:(NSString *)methodName parameters:(NSDictionary *)parasDic{
+    if (self.callMethodBlock) {
+        self.callMethodBlock(methodName, parasDic);
+    }
+}
 
 /**
  用法：
@@ -51,7 +73,7 @@
             // According to Apples Documentation you can determine the corresponding encoding values
         }
         // 针对block属性
-        if ([attributes containsObject:@"T@?"] && [attributes containsObject:[NSString stringWithFormat:@"V_%@",propertyName]]) {
+        if ([attributes containsObject:@"T@?"] && ([attributes containsObject:[NSString stringWithFormat:@"V_%@",propertyName]] || [attributes containsObject:[NSString stringWithFormat:@"V%@",propertyName]])) {
             return [NSString stringWithFormat:@"Block:%@",propertyName];
         }
         

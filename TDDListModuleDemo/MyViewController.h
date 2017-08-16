@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MyDataSourceProtocol.h"
 
 @interface MyViewController : UIViewController
 
 @property (nonatomic, strong) UITableView *theTableView;
-@property (nonatomic, strong) id<UITableViewDataSource,UITableViewDelegate> theDataSource;
+@property (nonatomic, strong) id<UITableViewDataSource,UITableViewDelegate,MyDataSourceProtocol> theDataSource;
 
 @end

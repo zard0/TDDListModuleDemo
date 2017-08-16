@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MyDataSourceProtocol.h"
 
-@interface MyTableViewDataSource : NSObject<UITableViewDataSource,UITableViewDelegate>
+@interface MyTableViewDataSource : NSObject<UITableViewDataSource,UITableViewDelegate,MyDataSourceProtocol>
 
-@property (nonatomic, strong) NSArray *theDataArray;
-@property (nonatomic, copy) void(^updateBlock)();
 
 @end
