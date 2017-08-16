@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "MyTableViewDataSource.h"
 #import "MyCell.h"
+#import "NSObject+TestingHelper.h"
 
 @interface MyTableViewDataSourceTests : XCTestCase
 
@@ -150,6 +151,27 @@
     MyTableViewDataSource *dataSource = [[MyTableViewDataSource alloc] init];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     XCTAssertThrows([dataSource tableView:tableView cellForRowAtIndexPath:indexPath]);
+}
+
+
+/**
+ tc 4.1
+ */
+- (void)test_HasAnUpdateBlock{
+    NSString *type = [NSObject typeForProperty:@"updateBlock" inClass:@"MyTableViewDataSource"];
+    XCTAssertTrue([type isEqualToString:@"Block:updateBlock"]);
+}
+
+/**
+ tc 4.2
+ */
+- (void)test_ExecuteUpdateBlockIfExistWhenTheDataArrayUpdated{
+    __block BOOL update = NO;
+    self.dataSource.updateBlock = ^{
+        update = YES;
+    };
+    self.dataSource.theDataArray = @[];
+    XCTAssertTrue(update);
 }
 
 @end

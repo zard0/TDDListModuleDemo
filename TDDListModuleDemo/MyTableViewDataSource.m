@@ -11,6 +11,15 @@
 
 @implementation MyTableViewDataSource
 
+#pragma mark - Properties
+
+- (void)setTheDataArray:(NSArray *)theDataArray{
+    _theDataArray = theDataArray;
+    if (self.updateBlock) {
+        self.updateBlock();
+    }
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

@@ -11,5 +11,6 @@
 @interface MyTableViewDataSource : NSObject<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) NSArray *theDataArray;
+@property (nonatomic, copy) void(^updateBlock)();
 
 @end

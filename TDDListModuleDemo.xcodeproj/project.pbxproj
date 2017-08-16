@@ -12,6 +12,7 @@
 		0A174B281F3C08E7005BB4D3 /* MyViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A174B271F3C08E7005BB4D3 /* MyViewControllerTests.m */; };
 		0A174B2B1F3C0BB6005BB4D3 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A174B2A1F3C0BB6005BB4D3 /* MyViewController.m */; };
 		0A3992BD1F42FA72004BEF86 /* MyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3992BC1F42FA72004BEF86 /* MyCell.m */; };
+		0A5FE4831F4436BC00C357D5 /* NSObject+TestingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5FE4821F4436BC00C357D5 /* NSObject+TestingHelper.m */; };
 		0ABD36581F3B257400FC023B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABD36571F3B257400FC023B /* main.m */; };
 		0ABD365B1F3B257400FC023B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABD365A1F3B257400FC023B /* AppDelegate.m */; };
 		0ABD365E1F3B257400FC023B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABD365D1F3B257400FC023B /* ViewController.m */; };
@@ -42,6 +43,8 @@
 		0A174B2A1F3C0BB6005BB4D3 /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
 		0A3992BB1F42FA72004BEF86 /* MyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCell.h; sourceTree = "<group>"; };
 		0A3992BC1F42FA72004BEF86 /* MyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCell.m; sourceTree = "<group>"; };
+		0A5FE4811F4436BC00C357D5 /* NSObject+TestingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+TestingHelper.h"; sourceTree = "<group>"; };
+		0A5FE4821F4436BC00C357D5 /* NSObject+TestingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+TestingHelper.m"; sourceTree = "<group>"; };
 		0ABD36531F3B257400FC023B /* TDDListModuleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TDDListModuleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ABD36571F3B257400FC023B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0ABD36591F3B257400FC023B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -134,6 +137,8 @@
 				0ABD367B1F3B25BF00FC023B /* MyModelTests.m */,
 				0A174B221F3BF6B1005BB4D3 /* MyTableViewDataSourceTests.m */,
 				0A174B271F3C08E7005BB4D3 /* MyViewControllerTests.m */,
+				0A5FE4811F4436BC00C357D5 /* NSObject+TestingHelper.h */,
+				0A5FE4821F4436BC00C357D5 /* NSObject+TestingHelper.m */,
 				0ABD36701F3B257400FC023B /* TDDListModuleDemoTests.m */,
 				0ABD36721F3B257400FC023B /* Info.plist */,
 			);
@@ -260,6 +265,7 @@
 			files = (
 				0ABD36711F3B257400FC023B /* TDDListModuleDemoTests.m in Sources */,
 				0A174B231F3BF6B1005BB4D3 /* MyTableViewDataSourceTests.m in Sources */,
+				0A5FE4831F4436BC00C357D5 /* NSObject+TestingHelper.m in Sources */,
 				0A174B281F3C08E7005BB4D3 /* MyViewControllerTests.m in Sources */,
 				0ABD367C1F3B25BF00FC023B /* MyModelTests.m in Sources */,
 			);
