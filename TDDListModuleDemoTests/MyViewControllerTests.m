@@ -14,6 +14,7 @@
 #import "FakeTableView.h"
 #import "ATypeViewController.h"
 #import "FakeNavigationViewController.h"
+#import "MyCell.h"
 
 @interface MyViewControllerTests : XCTestCase
 
@@ -155,6 +156,50 @@
     XCTAssertTrue([name isEqualToString:[FakeNavigationViewController pushMethodName]]);
     XCTAssertTrue([paras[[FakeNavigationViewController pushControllerParaKey]] isKindOfClass:[ATypeViewController class]]);
     XCTAssertEqual([paras[[FakeNavigationViewController pushAnimateParaKey]] boolValue] , YES);
+}
+
+
+/**
+ tc 5.7
+ */
+- (void)test_ExistTableViewAfterViewDidLoad{
+    [self.theController viewDidLoad];
+    XCTAssertNotNil(self.theController.theTableView);
+}
+
+/**
+ tc 5.8
+ */
+- (void)test_TableViewAddedToViewAfterViewDidLoad{
+    [self.theController viewDidLoad];
+    XCTAssertTrue([[self.theController.view subviews] containsObject:self.theController.theTableView]);
+}
+
+/**
+ tc 5.9
+ */
+- (void)test_TableViewRegisterMyCellAfterViewDidLoad{
+    [self.theController viewDidLoad];
+    UITableViewCell *cell = [self.theController.theTableView dequeueReusableCellWithIdentifier:[MyCell reuseIdentifier]];
+    XCTAssertNotNil(cell);
+    XCTAssertTrue([cell isKindOfClass:[MyCell class]]);
+}
+
+
+/**
+ tc 5.10
+ */
+- (void)test_ReloadDataIfFoundTheDataSourceHasDatasAfterViewDidLoad{
+    FakeTableView *tableView = [[FakeTableView alloc] init];
+    __block NSString *calledMethod;
+    tableView.callMethodBlock = ^(NSString *methodName, NSDictionary *parameters) {
+        calledMethod = methodName;
+    };
+    self.theController.theTableView = tableView;
+    self.theDataSource.theDataArray = @[@{@"type":@0,@"title":@"Type A Title",@"someId":@"0001"},@{@"type":@1,@"title":@"Type B Title",@"someId":@"0002"}];
+    self.theController.theDataSource = self.theDataSource;
+    [self.theController viewDidLoad];
+    XCTAssertTrue([calledMethod isEqualToString:@"reloadData"]);
 }
 
 @end

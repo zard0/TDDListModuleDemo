@@ -8,6 +8,7 @@
 
 #import "MyViewController.h"
 #import "ATypeViewController.h"
+#import "MyCell.h"
 
 @interface MyViewController ()
 
@@ -17,6 +18,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (!self.theTableView) {
+        self.theTableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    }
+    [self.theTableView registerClass:[MyCell class] forCellReuseIdentifier:[MyCell reuseIdentifier]];
+    [self.view addSubview:self.theTableView];
+    
     __weak typeof(self) wSelf = self;
     self.theDataSource.updateBlock = ^{
         __strong typeof(self) sSelf = wSelf;
@@ -32,6 +39,9 @@
     };
     self.theTableView.dataSource = self.theDataSource;
     self.theTableView.delegate = self.theDataSource;
+    if ([self.theDataSource.theDataArray count] > 0) {
+        [self.theTableView reloadData];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

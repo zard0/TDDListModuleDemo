@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "MyViewController.h"
+#import "MyTableViewDataSource.h"
 
 @interface AppDelegate ()
 
@@ -16,8 +18,19 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window.backgroundColor = [UIColor yellowColor];
+    MyViewController *vc = [[MyViewController alloc] init];
+    MyTableViewDataSource *dataSource = [[MyTableViewDataSource alloc] init];
+    dataSource.theDataArray = [self testDatas];
+    vc.theDataSource = dataSource;
+    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:vc];
+    self.window.rootViewController = navVC;
+    [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (NSArray *)testDatas{
+    return @[@{@"type":@0,@"title":@"Type A Title",@"someId":@"0001"},@{@"type":@1,@"title":@"Type B Title",@"someId":@"0002"}];
 }
 
 
