@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "MyDataSourceProtocol.h"
+#import "JumperProtocol.h"
 
 @interface MyViewController : UIViewController
 
 @property (nonatomic, strong) UITableView *theTableView;
 @property (nonatomic, strong) id<UITableViewDataSource,UITableViewDelegate,MyDataSourceProtocol> theDataSource;
+@property (nonatomic, strong) id<JumperProtocol> theJumper;
 
 @end

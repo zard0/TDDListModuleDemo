@@ -36,7 +36,7 @@
 
 
 /**
- tc 5.1
+ tc 7.1
  */
 - (void)testWindowIsKeyAfterApplicationLaunch{
     [self.appDelegate application:[UIApplication sharedApplication] didFinishLaunchingWithOptions:nil];
@@ -44,14 +44,14 @@
 }
 
 /**
- tc 5.2
+ tc 7.2
  */
 - (void)testApplicationDidFinishLaunchingWithOptionsReturnYes{
     XCTAssertTrue([self.appDelegate application:[UIApplication sharedApplication] didFinishLaunchingWithOptions:nil]);
 }
 
 /**
- tc 5.3
+ tc 7.3
  */
 - (void)testWindowHasRootNavigationControllerAterApplicationLaunch{
     [self.appDelegate application:[UIApplication sharedApplication] didFinishLaunchingWithOptions:nil];
@@ -59,7 +59,7 @@
 }
 
 /**
- tc 5.4
+ tc 7.4
  */
 - (void)testNavigationControllerShowsAMyViewController{
     [self.appDelegate application:[UIApplication sharedApplication] didFinishLaunchingWithOptions:nil];
@@ -68,7 +68,7 @@
 }
 
 /**
- tc 5.5
+ tc 7.5
  */
 - (void)testVisibleMyViewControllerHasADataSource{
     [self.appDelegate application:[UIApplication sharedApplication] didFinishLaunchingWithOptions:nil];
@@ -78,7 +78,7 @@
 }
 
 /**
- tc 5.6
+ tc 7.6
  */
 - (void)testDataSourceHasDatas{
     [self.appDelegate application:[UIApplication sharedApplication] didFinishLaunchingWithOptions:nil];

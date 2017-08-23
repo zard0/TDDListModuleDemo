@@ -16,6 +16,7 @@
 #import "FakeNavigationViewController.h"
 #import "MyCell.h"
 
+
 @interface MyViewControllerTests : XCTestCase
 
 @property (nonatomic, strong) UITableView *theTableView;
@@ -158,9 +159,27 @@
     XCTAssertEqual([paras[[FakeNavigationViewController pushAnimateParaKey]] boolValue] , YES);
 }
 
+/**
+ tc 5.1
+ */
+- (void)test_Property_TheJumper_ConformJumperProtocol{
+    NSString *typeName = [NSObject typeForProperty:@"theJumper" inClass:@"MyViewController"];
+    XCTAssertTrue([typeName isEqualToString:@"<JumperProtocol>"]);
+}
 
 /**
- tc 5.7
+ tc 5.2
+ */
+- (void)test_Property_TheJumper_IsStronglyRefered{
+    @autoreleasepool {
+        self.theController.theJumper = (id<JumperProtocol>)[[NSObject alloc] init];
+    }
+    // weak引用，会被自动释放池释放，强引用不会。
+    XCTAssertNotNil(self.theController.theJumper);
+}
+
+/**
+ tc 7.7
  */
 - (void)test_ExistTableViewAfterViewDidLoad{
     [self.theController viewDidLoad];
@@ -168,7 +187,7 @@
 }
 
 /**
- tc 5.8
+ tc 7.8
  */
 - (void)test_TableViewAddedToViewAfterViewDidLoad{
     [self.theController viewDidLoad];
@@ -176,7 +195,7 @@
 }
 
 /**
- tc 5.9
+ tc 7.9
  */
 - (void)test_TableViewRegisterMyCellAfterViewDidLoad{
     [self.theController viewDidLoad];
@@ -187,7 +206,7 @@
 
 
 /**
- tc 5.10
+ tc 7.10
  */
 - (void)test_ReloadDataIfFoundTheDataSourceHasDatasAfterViewDidLoad{
     FakeTableView *tableView = [[FakeTableView alloc] init];

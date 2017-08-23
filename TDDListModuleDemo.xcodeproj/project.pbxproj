@@ -13,6 +13,8 @@
 		0A174B2B1F3C0BB6005BB4D3 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A174B2A1F3C0BB6005BB4D3 /* MyViewController.m */; };
 		0A3992BD1F42FA72004BEF86 /* MyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3992BC1F42FA72004BEF86 /* MyCell.m */; };
 		0A5FE4831F4436BC00C357D5 /* NSObject+TestingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5FE4821F4436BC00C357D5 /* NSObject+TestingHelper.m */; };
+		0A93B8A81F4D69E9000BFB97 /* MyJumperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A93B8A71F4D69E9000BFB97 /* MyJumperTests.m */; };
+		0A93B8AB1F4D6A9C000BFB97 /* MyCellJumper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A93B8AA1F4D6A9C000BFB97 /* MyCellJumper.m */; };
 		0ABD36581F3B257400FC023B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABD36571F3B257400FC023B /* main.m */; };
 		0ABD365B1F3B257400FC023B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABD365A1F3B257400FC023B /* AppDelegate.m */; };
 		0ABD365E1F3B257400FC023B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABD365D1F3B257400FC023B /* ViewController.m */; };
@@ -49,6 +51,10 @@
 		0A3992BC1F42FA72004BEF86 /* MyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCell.m; sourceTree = "<group>"; };
 		0A5FE4811F4436BC00C357D5 /* NSObject+TestingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+TestingHelper.h"; sourceTree = "<group>"; };
 		0A5FE4821F4436BC00C357D5 /* NSObject+TestingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+TestingHelper.m"; sourceTree = "<group>"; };
+		0A93B8A61F4D64D7000BFB97 /* JumperProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JumperProtocol.h; sourceTree = "<group>"; };
+		0A93B8A71F4D69E9000BFB97 /* MyJumperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyJumperTests.m; sourceTree = "<group>"; };
+		0A93B8A91F4D6A9C000BFB97 /* MyCellJumper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCellJumper.h; sourceTree = "<group>"; };
+		0A93B8AA1F4D6A9C000BFB97 /* MyCellJumper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCellJumper.m; sourceTree = "<group>"; };
 		0ABD36531F3B257400FC023B /* TDDListModuleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TDDListModuleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ABD36571F3B257400FC023B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0ABD36591F3B257400FC023B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -125,6 +131,9 @@
 				0A174B241F3BFA73005BB4D3 /* MyTableViewDataSource.h */,
 				0A174B251F3BFA73005BB4D3 /* MyTableViewDataSource.m */,
 				0AFA82681F43E3410020C958 /* MyDataSourceProtocol.h */,
+				0A93B8A61F4D64D7000BFB97 /* JumperProtocol.h */,
+				0A93B8A91F4D6A9C000BFB97 /* MyCellJumper.h */,
+				0A93B8AA1F4D6A9C000BFB97 /* MyCellJumper.m */,
 				0A174B291F3C0BB6005BB4D3 /* MyViewController.h */,
 				0A174B2A1F3C0BB6005BB4D3 /* MyViewController.m */,
 				0AFA82691F44214B0020C958 /* ATypeViewController.h */,
@@ -149,6 +158,7 @@
 		0ABD366F1F3B257400FC023B /* TDDListModuleDemoTests */ = {
 			isa = PBXGroup;
 			children = (
+				0A93B8A71F4D69E9000BFB97 /* MyJumperTests.m */,
 				0AC80B4C1F4561030081F4D4 /* AppDelegateTests.m */,
 				0ABD367B1F3B25BF00FC023B /* MyModelTests.m */,
 				0A174B221F3BF6B1005BB4D3 /* MyTableViewDataSourceTests.m */,
@@ -273,6 +283,7 @@
 				0A174B261F3BFA73005BB4D3 /* MyTableViewDataSource.m in Sources */,
 				0AFA826B1F44214B0020C958 /* ATypeViewController.m in Sources */,
 				0ABD365E1F3B257400FC023B /* ViewController.m in Sources */,
+				0A93B8AB1F4D6A9C000BFB97 /* MyCellJumper.m in Sources */,
 				0ABD365B1F3B257400FC023B /* AppDelegate.m in Sources */,
 				0ABD36581F3B257400FC023B /* main.m in Sources */,
 				0ABD367F1F3B318B00FC023B /* MyModel.m in Sources */,
@@ -285,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AFA826E1F442E0C0020C958 /* FakeNavigationViewController.m in Sources */,
+				0A93B8A81F4D69E9000BFB97 /* MyJumperTests.m in Sources */,
 				0ABD36711F3B257400FC023B /* TDDListModuleDemoTests.m in Sources */,
 				0A174B231F3BF6B1005BB4D3 /* MyTableViewDataSourceTests.m in Sources */,
 				0A5FE4831F4436BC00C357D5 /* NSObject+TestingHelper.m in Sources */,
