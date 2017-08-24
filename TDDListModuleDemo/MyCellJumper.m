@@ -7,6 +7,10 @@
 //
 
 #import "MyCellJumper.h"
+#import "MyModel.h"
+#import "ATypeViewController.h"
+#import "BTypeViewController.h"
+#import "CTypeViewController.h"
 
 @implementation MyCellJumper
 
@@ -22,7 +26,27 @@
 }
 
 - (void)toControllerWithData:(id)data{
-    
+    if (!data || ![data isKindOfClass:[MyModel class]]) {
+        return;
+    }
+    MyModel *model = data;
+    UIViewController *vc;
+    switch (model.type) {
+        case ModelTypeA:
+            vc = [[ATypeViewController alloc] init];
+            break;
+        case ModelTypeB:
+            vc = [[BTypeViewController alloc] init];
+            break;
+        case ModelTypeC:
+            vc = [[CTypeViewController alloc] init];
+            break;
+        default:{
+            return;
+        }
+            break;
+    }
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

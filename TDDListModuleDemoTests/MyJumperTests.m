@@ -8,8 +8,20 @@
 
 #import <XCTest/XCTest.h>
 #import "MyCellJumper.h"
+#import "MyModel.h"
+#import "FakeNavigationViewController.h"
+#import "ATypeViewController.h"
+#import "BTypeViewController.h"
+#import "CTypeViewController.h"
 
 @interface MyJumperTests : XCTestCase
+
+@property (nonatomic, strong) UINavigationController *navVC;
+@property (nonatomic, strong) FakeNavigationViewController *fakeNavVC;
+@property (nonatomic, strong) MyCellJumper *jumper;
+@property (nonatomic, strong) MyCellJumper *jumperWithFakeNavVC;
+@property (nonatomic, strong) UIViewController *pushedController;
+@property (nonatomic, strong) NSString *pushMethod;
 
 @end
 
@@ -17,11 +29,25 @@
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    // 依赖于可测试导航栏控制器的jumper
+    self.fakeNavVC = [[FakeNavigationViewController alloc] init];
+    __weak typeof(self) wSelf = self;
+    self.fakeNavVC.callMethodBlock = ^(NSString *methodName, NSDictionary *parameters) {
+        __strong typeof(self) sSelf = wSelf;
+        sSelf.pushMethod = methodName;
+        sSelf.pushedController = parameters[[FakeNavigationViewController pushControllerParaKey]];
+    };
+    self.jumperWithFakeNavVC = [[MyCellJumper alloc] initWithNavigationController:self.fakeNavVC];
+    // 正常的jumper
+    self.navVC = [[UINavigationController alloc] init];
+    self.jumper = [[MyCellJumper alloc] initWithNavigationController:self.navVC];
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
+    self.navVC = nil;
+    self.jumper = nil;
+    self.pushedController = nil;
+    self.pushMethod = nil;
     [super tearDown];
 }
 
@@ -30,24 +56,21 @@
  tc 5.3
  */
 - (void)test_ShouldConformJumperProtocol{
-    MyCellJumper *jumper = [[MyCellJumper alloc] init];
-    XCTAssertTrue([jumper conformsToProtocol:@protocol(JumperProtocol)]);
+    XCTAssertTrue([self.jumper conformsToProtocol:@protocol(JumperProtocol)]);
 }
 
 /**
  tc 5.4
  */
 - (void)test_Method_ToControllerWithData_ShouldBeImplemented{
-    MyCellJumper *jumper = [[MyCellJumper alloc] init];
-    XCTAssertTrue([jumper respondsToSelector:@selector(toControllerWithData:)]);
+    XCTAssertTrue([self.jumper respondsToSelector:@selector(toControllerWithData:)]);
 }
 
 /**
  tc 5.5
  */
 - (void)test_Method_InitWithNavigationController_ShouldBeImplemented{
-    MyCellJumper *jumper = [[MyCellJumper alloc] init];
-    XCTAssertTrue([jumper respondsToSelector:@selector(initWithNavigationController:)]);
+    XCTAssertTrue([self.jumper respondsToSelector:@selector(initWithNavigationController:)]);
 }
 
 /**
@@ -80,7 +103,79 @@
     XCTAssertTrue([jumper.navigationController isKindOfClass:[UINavigationController class]]);
 }
 
+/**
+ tc 5.9
+ */
+- (void)test_Method_ToControllerWithData_DoNotPushWithNil{
+    [self.jumperWithFakeNavVC toControllerWithData:nil];
+    XCTAssertNil(self.pushMethod);
+}
+
+/**
+ tc 5.10
+ */
+- (void)test_Method_ToControllerWithData_DoNotPushWithNotMyModelTypeData{
+    NSObject *otherPara = [[NSObject alloc] init];
+    [self.jumperWithFakeNavVC toControllerWithData:otherPara];
+    XCTAssertNil(self.pushMethod);
+}
+
+/**
+ tc 5.11
+ */
+- (void)test_JumpToATypeViewController_WithATypeData{
+    MyModel *model = [[MyModel alloc] init];
+    model.type = ModelTypeA;
+    [self.jumperWithFakeNavVC toControllerWithData:model];
+    XCTAssertTrue([self.pushMethod isEqualToString:[FakeNavigationViewController pushMethodName]]);
+    XCTAssertTrue([self.pushedController isKindOfClass:[ATypeViewController class]]);
+}
+
+/**
+ tc 5.12
+ */
+- (void)test_JumpToBTypeViewController_WithBTypeData{
+    MyModel *model = [[MyModel alloc] init];
+    model.type = ModelTypeB;
+    [self.jumperWithFakeNavVC toControllerWithData:model];
+    XCTAssertTrue([self.pushMethod isEqualToString:[FakeNavigationViewController pushMethodName]]);
+    XCTAssertTrue([self.pushedController isKindOfClass:[BTypeViewController class]]);
+}
+
+/**
+ tc 5.13
+ */
+- (void)test_JumpToCTypeViewController_WithCTypeData{
+    MyModel *model = [[MyModel alloc] init];
+    model.type = ModelTypeC;
+    [self.jumperWithFakeNavVC toControllerWithData:model];
+    XCTAssertTrue([self.pushMethod isEqualToString:[FakeNavigationViewController pushMethodName]]);
+    XCTAssertTrue([self.pushedController isKindOfClass:[CTypeViewController class]]);
+}
+
+/**
+ tc 5.14
+ */
+- (void)test_DoNotPushWhenMyModelTypeDataWithOtherTypeValue{
+    MyModel *model = [[MyModel alloc] init];
+    model.type = 100;
+    [self.jumperWithFakeNavVC toControllerWithData:model];
+    XCTAssertNil(self.pushMethod);
+    XCTAssertNil(self.pushedController);
+}
+
 @end
+
+
+
+
+
+
+
+
+
+
+
 
 
 

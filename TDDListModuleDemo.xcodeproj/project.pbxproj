@@ -24,6 +24,8 @@
 		0ABD36711F3B257400FC023B /* TDDListModuleDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABD36701F3B257400FC023B /* TDDListModuleDemoTests.m */; };
 		0ABD367C1F3B25BF00FC023B /* MyModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABD367B1F3B25BF00FC023B /* MyModelTests.m */; };
 		0ABD367F1F3B318B00FC023B /* MyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABD367E1F3B318B00FC023B /* MyModel.m */; };
+		0AC5DE9B1F4EBF4D00BF6FDA /* BTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC5DE9A1F4EBF4D00BF6FDA /* BTypeViewController.m */; };
+		0AC5DE9E1F4EBF5B00BF6FDA /* CTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC5DE9D1F4EBF5B00BF6FDA /* CTypeViewController.m */; };
 		0AC80B4D1F4561030081F4D4 /* AppDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC80B4C1F4561030081F4D4 /* AppDelegateTests.m */; };
 		0AFA82671F43DA9D0020C958 /* FakeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFA82661F43DA9D0020C958 /* FakeTableView.m */; };
 		0AFA826B1F44214B0020C958 /* ATypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFA826A1F44214B0020C958 /* ATypeViewController.m */; };
@@ -71,6 +73,10 @@
 		0ABD367B1F3B25BF00FC023B /* MyModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyModelTests.m; sourceTree = "<group>"; };
 		0ABD367D1F3B318B00FC023B /* MyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyModel.h; sourceTree = "<group>"; };
 		0ABD367E1F3B318B00FC023B /* MyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyModel.m; sourceTree = "<group>"; };
+		0AC5DE991F4EBF4D00BF6FDA /* BTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTypeViewController.h; sourceTree = "<group>"; };
+		0AC5DE9A1F4EBF4D00BF6FDA /* BTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTypeViewController.m; sourceTree = "<group>"; };
+		0AC5DE9C1F4EBF5B00BF6FDA /* CTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTypeViewController.h; sourceTree = "<group>"; };
+		0AC5DE9D1F4EBF5B00BF6FDA /* CTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTypeViewController.m; sourceTree = "<group>"; };
 		0AC80B4C1F4561030081F4D4 /* AppDelegateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegateTests.m; sourceTree = "<group>"; };
 		0AFA82651F43DA9D0020C958 /* FakeTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeTableView.h; sourceTree = "<group>"; };
 		0AFA82661F43DA9D0020C958 /* FakeTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeTableView.m; sourceTree = "<group>"; };
@@ -138,6 +144,10 @@
 				0A174B2A1F3C0BB6005BB4D3 /* MyViewController.m */,
 				0AFA82691F44214B0020C958 /* ATypeViewController.h */,
 				0AFA826A1F44214B0020C958 /* ATypeViewController.m */,
+				0AC5DE991F4EBF4D00BF6FDA /* BTypeViewController.h */,
+				0AC5DE9A1F4EBF4D00BF6FDA /* BTypeViewController.m */,
+				0AC5DE9C1F4EBF5B00BF6FDA /* CTypeViewController.h */,
+				0AC5DE9D1F4EBF5B00BF6FDA /* CTypeViewController.m */,
 				0ABD365F1F3B257400FC023B /* Main.storyboard */,
 				0ABD36621F3B257400FC023B /* Assets.xcassets */,
 				0ABD36641F3B257400FC023B /* LaunchScreen.storyboard */,
@@ -286,6 +296,8 @@
 				0A93B8AB1F4D6A9C000BFB97 /* MyCellJumper.m in Sources */,
 				0ABD365B1F3B257400FC023B /* AppDelegate.m in Sources */,
 				0ABD36581F3B257400FC023B /* main.m in Sources */,
+				0AC5DE9E1F4EBF5B00BF6FDA /* CTypeViewController.m in Sources */,
+				0AC5DE9B1F4EBF4D00BF6FDA /* BTypeViewController.m in Sources */,
 				0ABD367F1F3B318B00FC023B /* MyModel.m in Sources */,
 				0A3992BD1F42FA72004BEF86 /* MyCell.m in Sources */,
 			);
