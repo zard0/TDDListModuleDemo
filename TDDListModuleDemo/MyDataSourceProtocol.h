@@ -13,6 +13,6 @@
 @optional
 @property (nonatomic, strong) NSArray *theDataArray;
 @property (nonatomic, copy) void(^updateBlock)();
-@property (nonatomic, copy) void(^cellTapBlock)(NSIndexPath *indexPath);
+@property (nonatomic, copy) void(^cellTapBlock)(id dataModel);
 
 @end

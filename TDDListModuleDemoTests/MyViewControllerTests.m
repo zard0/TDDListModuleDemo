@@ -15,13 +15,16 @@
 #import "ATypeViewController.h"
 #import "FakeNavigationViewController.h"
 #import "MyCell.h"
-
+#import "FakeMyJumper.h"
 
 @interface MyViewControllerTests : XCTestCase
 
 @property (nonatomic, strong) UITableView *theTableView;
 @property (nonatomic, strong) MyTableViewDataSource *theDataSource;
 @property (nonatomic, strong) MyViewController *theController;
+@property (nonatomic, strong) FakeMyJumper *fakeJumper;
+@property (nonatomic, copy) NSString *cellJumpMethod;
+@property (nonatomic, strong) id dataPassedToJumper;
 
 @end
 
@@ -38,6 +41,9 @@
     self.theDataSource = nil;
     self.theTableView = nil;
     self.theController = nil;
+    self.fakeJumper = nil;
+    self.cellJumpMethod = nil;
+    self.dataPassedToJumper = nil;
     [super tearDown];
 }
 
@@ -142,22 +148,74 @@
 /**
  tc 4.8
  */
-- (void)test_pushMethodIsCalledWithATypeViewControllerIfTapATypeCell{
-    FakeNavigationViewController *nav = [[FakeNavigationViewController alloc] initWithRootViewController:self.theController];
-    __block NSString *name;
-    __block NSDictionary *paras;
-    nav.callMethodBlock = ^(NSString *methodName, NSDictionary *parameters) {
-        name = methodName;
-        paras = parameters;
-    };
-    [self setupDataSourceAndTableViewThenDoViewDidLoad];
-    self.theController.theDataSource.theDataArray = @[@{@"type":@0,@"title":@"Type A Title",@"someId":@"0001"},@{@"type":@1,@"title":@"Type B Title",@"someId":@"0002"}];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.theController.theDataSource tableView:self.theController.theTableView didSelectRowAtIndexPath:indexPath];
-    XCTAssertTrue([name isEqualToString:[FakeNavigationViewController pushMethodName]]);
-    XCTAssertTrue([paras[[FakeNavigationViewController pushControllerParaKey]] isKindOfClass:[ATypeViewController class]]);
-    XCTAssertEqual([paras[[FakeNavigationViewController pushAnimateParaKey]] boolValue] , YES);
+- (void)test_SelectACellTheJumperCallJumpMethod{
+    [self selectCellWithDataType:ModelTypeC];
+    XCTAssertTrue([self.cellJumpMethod isEqualToString:[FakeMyJumper jumpMethodName]]);
 }
+
+/**
+ tc 5.15
+ */
+- (void)test_SelectATypeCellPassATypeModelToTheJumper{
+    [self selectCellWithDataType:ModelTypeA];
+    XCTAssertTrue([self.cellJumpMethod isEqualToString:[FakeMyJumper jumpMethodName]]);
+    XCTAssertTrue([self.dataPassedToJumper isKindOfClass:[MyModel class]]);
+    MyModel *dataModel = self.dataPassedToJumper;
+    XCTAssertTrue(dataModel.type == ModelTypeA);
+}
+
+/**
+ tc 5.16
+ */
+- (void)test_SelectBTypeCellPassBTypeModelToTheJumper{
+    [self selectCellWithDataType:ModelTypeB];
+    XCTAssertTrue([self.cellJumpMethod isEqualToString:[FakeMyJumper jumpMethodName]]);
+    XCTAssertTrue([self.dataPassedToJumper isKindOfClass:[MyModel class]]);
+    MyModel *dataModel = self.dataPassedToJumper;
+    XCTAssertTrue(dataModel.type == ModelTypeB);
+}
+
+/**
+ tc 5.17
+ */
+- (void)test_SelectCTypeCellPassCTypeModelToTheJumper{
+    [self selectCellWithDataType:ModelTypeC];
+    XCTAssertTrue([self.cellJumpMethod isEqualToString:[FakeMyJumper jumpMethodName]]);
+    XCTAssertTrue([self.dataPassedToJumper isKindOfClass:[MyModel class]]);
+    MyModel *dataModel = self.dataPassedToJumper;
+    XCTAssertTrue(dataModel.type == ModelTypeC);
+}
+
+
+/**
+ 选择一种数据类型的cell
+
+ @param type <#type description#>
+ */
+- (void)selectCellWithDataType:(ModelType)type{
+    UINavigationController *navVC = [[UINavigationController alloc] init];
+    self.fakeJumper = [[FakeMyJumper alloc] initWithNavigationController:navVC];
+    __weak typeof(self) wSelf = self;
+    self.fakeJumper.callMethodBlock = ^(NSString *methodName, NSDictionary *parameters) {
+        __strong typeof(self) sSelf = wSelf;
+        sSelf.cellJumpMethod = methodName;
+        sSelf.dataPassedToJumper = parameters[[FakeMyJumper modelKey]];
+    };
+    self.theController.theJumper = self.fakeJumper;
+    self.theDataSource.theDataArray = @[@{@"type":@0,@"title":@"Type A Title",@"someId":@"0001"},@{@"type":@1,@"title":@"Type B Title",@"someId":@"0002"},@{@"type":@2,@"title":@"Type C Title",@"someId":@"0003"}];
+    self.theController.theDataSource = self.theDataSource;
+    [self.theController viewDidLoad];
+    NSInteger row = 0;
+    if (type == ModelTypeA) {
+        row = 0;
+    }else if (type == ModelTypeB){
+        row = 1;
+    }else if (type == ModelTypeC){
+        row = 2;
+    }
+    [self.theDataSource tableView:self.theTableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0]];
+}
+
 
 /**
  tc 5.1

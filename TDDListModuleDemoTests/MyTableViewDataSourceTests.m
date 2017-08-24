@@ -188,7 +188,7 @@
  */
 - (void)test_ExecuteCellTapBlockIfCellSelectedMethodCalled{
     __block BOOL called = NO;
-    self.dataSource.cellTapBlock = ^(NSIndexPath *indexPath){
+    self.dataSource.cellTapBlock = ^(id dataModel){
         called = YES;
     };
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
@@ -200,14 +200,21 @@
  tc 4.6
  */
 - (void)test_CellTapBlockReceiveDataOfTappedCell{
-    __block NSInteger row = 0;
-    self.dataSource.cellTapBlock = ^(NSIndexPath *indexPath){
-        row = indexPath.row;
+    self.dataSource.theDataArray = @[@{@"type":@0,@"title":@"Type A Title",@"someId":@"0001"},@{@"type":@1,@"title":@"Type B Title",@"someId":@"0002"}];
+    __block id model;
+    self.dataSource.cellTapBlock = ^(id dataModel){
+        model = dataModel;
     };
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
     [self.dataSource tableView:self.theTableView didSelectRowAtIndexPath:indexPath];
-    XCTAssertTrue(row == 1);
+    XCTAssertNotNil(model);
+    XCTAssertTrue([model isKindOfClass:[MyModel class]]);
+    MyModel *cellModel = model;
+    XCTAssertTrue([cellModel.someId isEqualToString:@"0002"]);
+    XCTAssertTrue([cellModel.title isEqualToString:@"Type B Title"]);
+    XCTAssertTrue(cellModel.type == ModelTypeB);
 }
+
 
 @end
 

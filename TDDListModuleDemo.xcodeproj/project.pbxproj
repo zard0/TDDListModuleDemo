@@ -11,6 +11,7 @@
 		0A174B261F3BFA73005BB4D3 /* MyTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A174B251F3BFA73005BB4D3 /* MyTableViewDataSource.m */; };
 		0A174B281F3C08E7005BB4D3 /* MyViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A174B271F3C08E7005BB4D3 /* MyViewControllerTests.m */; };
 		0A174B2B1F3C0BB6005BB4D3 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A174B2A1F3C0BB6005BB4D3 /* MyViewController.m */; };
+		0A37866A1F4F00A8008C6F89 /* FakeMyJumper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3786691F4F00A8008C6F89 /* FakeMyJumper.m */; };
 		0A3992BD1F42FA72004BEF86 /* MyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3992BC1F42FA72004BEF86 /* MyCell.m */; };
 		0A5FE4831F4436BC00C357D5 /* NSObject+TestingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5FE4821F4436BC00C357D5 /* NSObject+TestingHelper.m */; };
 		0A93B8A81F4D69E9000BFB97 /* MyJumperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A93B8A71F4D69E9000BFB97 /* MyJumperTests.m */; };
@@ -49,6 +50,8 @@
 		0A174B271F3C08E7005BB4D3 /* MyViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewControllerTests.m; sourceTree = "<group>"; };
 		0A174B291F3C0BB6005BB4D3 /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
 		0A174B2A1F3C0BB6005BB4D3 /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
+		0A3786681F4F00A8008C6F89 /* FakeMyJumper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeMyJumper.h; sourceTree = "<group>"; };
+		0A3786691F4F00A8008C6F89 /* FakeMyJumper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeMyJumper.m; sourceTree = "<group>"; };
 		0A3992BB1F42FA72004BEF86 /* MyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCell.h; sourceTree = "<group>"; };
 		0A3992BC1F42FA72004BEF86 /* MyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCell.m; sourceTree = "<group>"; };
 		0A5FE4811F4436BC00C357D5 /* NSObject+TestingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+TestingHelper.h"; sourceTree = "<group>"; };
@@ -169,6 +172,8 @@
 			isa = PBXGroup;
 			children = (
 				0A93B8A71F4D69E9000BFB97 /* MyJumperTests.m */,
+				0A3786681F4F00A8008C6F89 /* FakeMyJumper.h */,
+				0A3786691F4F00A8008C6F89 /* FakeMyJumper.m */,
 				0AC80B4C1F4561030081F4D4 /* AppDelegateTests.m */,
 				0ABD367B1F3B25BF00FC023B /* MyModelTests.m */,
 				0A174B221F3BF6B1005BB4D3 /* MyTableViewDataSourceTests.m */,
@@ -316,6 +321,7 @@
 				0A174B281F3C08E7005BB4D3 /* MyViewControllerTests.m in Sources */,
 				0AFA82671F43DA9D0020C958 /* FakeTableView.m in Sources */,
 				0ABD367C1F3B25BF00FC023B /* MyModelTests.m in Sources */,
+				0A37866A1F4F00A8008C6F89 /* FakeMyJumper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

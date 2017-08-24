@@ -7,7 +7,6 @@
 //
 
 #import "MyViewController.h"
-#import "ATypeViewController.h"
 #import "MyCell.h"
 
 @interface MyViewController ()
@@ -29,12 +28,11 @@
         __strong typeof(self) sSelf = wSelf;
         [sSelf.theTableView reloadData];
     };
-    self.theDataSource.cellTapBlock = ^(NSIndexPath *indexPath) {
+    // cell跳转逻辑
+    self.theDataSource.cellTapBlock = ^(id dateModel) {
         __strong typeof(self) sSelf = wSelf;
-        NSDictionary *data = sSelf.theDataSource.theDataArray[indexPath.row];
-        if ([data[@"type"] integerValue] == 0) {
-            ATypeViewController *vc = [[ATypeViewController alloc] init];
-            [sSelf.navigationController pushViewController:vc animated:YES];
+        if (sSelf.theJumper) {
+            [sSelf.theJumper toControllerWithData:dateModel];
         }
     };
     self.theTableView.dataSource = self.theDataSource;

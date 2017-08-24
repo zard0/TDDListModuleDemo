@@ -49,7 +49,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (self.cellTapBlock) {
-        self.cellTapBlock(indexPath);
+        MyModel *model = [[MyModel alloc] init];
+        NSDictionary *data = self.theDataArray[indexPath.row];
+        model.someId = data[@"someId"];
+        model.title = data[@"title"];
+        model.type = [data[@"type"] integerValue];
+        self.cellTapBlock(model);
     }
 }
 
